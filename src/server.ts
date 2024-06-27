@@ -2,8 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-// import userRouter from './routes/user';
-// import authRouter from './routes/auth';
+import userRouter from './routes/userRoute';
+import registerRoute from './routes/registerRouter'
 
 dotenv.config();
 const app = express();
@@ -15,8 +15,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // routes.
-//app.use('/api/users', userRouter);
-// app.use('/api/auth', authRouter);
+app.use('/api', userRouter);
+app.use('/api', registerRoute);
 
 
 

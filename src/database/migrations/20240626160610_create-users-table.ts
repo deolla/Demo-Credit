@@ -1,23 +1,25 @@
 import type { Knex } from "knex";
+const { v4: uuidv4 } = require('uuid');
 
 
 export async function up(knex: Knex): Promise<void> {
     return knex.schema.createTable('users', (table) => {
-        table.uuid('id').primary().notNullable().unique()
+        table.uuid('id').primary().defaultTo(knex.raw('uuid_generated_v4()'));
         table.string('name').notNullable();
-        table.string('email').unique().notNullable();
-        table.integer('age').notNullable();
-        table.string('phone').unique().notNullable();
-        table.float('float', 3, 2).notNullable();
-        table.boolean('isblacklisted').defaultTo(false);
+        table.string('email').notNullable().unique();
         table.string('password').notNullable();
-        table.string('role').notNullable();
-        table.timestamps(true, true);
+        table.integer('age').notNullable();
+        table.string('phone').notNullable();
+        table.json('address').notNullable();
+        table.boolean('isblacklisted').notNullable().defaultTo(false);
+        table.timestamp('createdAt').defaultTo(knex.fn.now());
+        table.timestamp('updatedAt').defaultTo(knex.fn.now());
+        table.timestamp('deletedAt').nullable();
     });
 }
 
 
 export async function down(knex: Knex): Promise<void> {
-    return knex.schema.dropTable('users');
+    return knex.schema.dropTableIfExists('users');
 }
 

@@ -27,11 +27,11 @@ It shows how each entities are connected, ensuring data integrity and efficient 
 
 ## Technologies Used:
 
--- Node.js: Server-side JavaScript engine for building applications.
--- TypeScript: A Type-safe language that builds on JavaScript.
--- Knex: An SQL Query builder for database migration and queries used for user and transaction management.
--- MySQLDB: Relational Database Managemant System used for storing user and transaction data.
--- Yup: Validation library for ensuring data integrity and efficient handling of user and transaction data.
+- Node.js: Server-side JavaScript engine for building applications.
+- TypeScript: A Type-safe language that builds on JavaScript.
+- Knex: An SQL Query builder for database migration and queries used for user and transaction management.
+- MySQLDB: Relational Database Managemant System used for storing user and transaction data.
+- Yup: Validation library for ensuring data integrity and efficient handling of user and transaction data.
 
 ## Setup:
 

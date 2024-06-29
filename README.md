@@ -1,8 +1,8 @@
-## Demo Credit Financial App
+# Demo Credit Financial App
 
 Demo Credit is a mobile lending app that requires wallet functionality.ion that provides wallet functionality, allowing users to create accounts, fund them, transfer funds between accounts, and withdraw funds. This README provides a comprehensive overview of the project, including the E-R Diagram, setup instructions, implementation details, and the technologies used.
 
-# E-R Diagram
+## E-R Diagram
 
 The E-R Diagram represents the relationships between the main entities in the Demo Credit financial app: User, Wallet, and Transaction.
 
@@ -22,11 +22,11 @@ The E-R Diagram represents the relationships between the main entities in the De
    - Attributes: TransactionID (Primary Key), WalletID (Foreign Key), Amount, TransactionType, TransactionDate
    - Relationships: A transaction belongs to a wallet.
 
-# E-R Diagram Design
+## E-R Diagram Design
 
 You can view and edit the E-R Diagram using DB Designer. The diagram illustrates how the entities are connected, ensuring data integrity and efficient handling of user and transaction data.
 
-# Technologies Used:
+## Technologies Used:
 
 -- Node.js: Server-side JavaScript engine for building applications.
 -- TypeScript: A Type-safe language that builds on JavaScript.
@@ -34,9 +34,9 @@ You can view and edit the E-R Diagram using DB Designer. The diagram illustrates
 -- MySQLDB: Relational Database Managemant System used for storing user and transaction data.
 -- Yup: Validation library for ensuring data integrity and efficient handling of user and transaction data.
 
-# Setup:
+## Setup:
 
-#Installation
+## Installation
 
 1. Clone the repository: `git clone [repository]-url`
    - Open the terminal and run:
@@ -65,7 +65,7 @@ You can view and edit the E-R Diagram using DB Designer. The diagram illustrates
    npm run knex migrate:latest
    ```
 
-# Running Application
+## Running Application
 
 1. Start the Server:
    ```
@@ -107,35 +107,33 @@ Project Structure
 ├── package.json
 └── README.md`
 
-# Controllers
+## Controllers
 
-- User Controller: Contains CRUD implementations.
-- Wallet Controller: Contains CRUD implementations.
-- Transaction Controller: Contains CRUD implementations.
+- User Controller: Contains CRUD implementations for Users.
+- Wallet Controller: Contains CRUD implementations for wallets.
+- Transaction Controller: Contains CRUD implementations for transactions.
 
-# Models
+## Models
 
 - User Model: Represents the user entity and interactions with the user table.
 - Wallet Model: Represents the wallet entity and interactions with the wallet table.
 - Transaction Model: Represents the transaction entity and interactions with the transaction table.
 
-# Routes
+## Routes
 
 - User Routes: Define endpoints for user-related actions.
 - Wallet Routes: Define endpoints for wallet-related actions.
 - Transaction Routes: Define endpoints for transaction-related actions.
 
-# Services
+## Services
 
 - User Service: Contains business logic for user operations.
 - Wallet Service: Contains business logic for wallet operations.
 - Transaction Service: Contains business logic for transaction operations.
 
-# Validations
+## Services/Validations
 
-- User Validation: Uses Yup for validating user data.
-- Wallet Validation: Uses Yup for validating wallet data.
-- Transaction Validation: Uses Yup for validating transaction data.
+Email Validation: Contains validations for email implementation.
 
 # Contributing
 

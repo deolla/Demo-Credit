@@ -6,7 +6,7 @@ Demo Credit is a mobile lending app that requires wallet functionality.ion that 
 
 The E-R Diagram represents the relationships between the main entities in the Demo Credit financial app: User, Wallet, and Transaction.
 
-- Entities and Relationships \*
+# - Entities and Relationships
 
 1. User
 

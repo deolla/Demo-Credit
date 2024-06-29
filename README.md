@@ -102,10 +102,15 @@ It shows how each entities are connected, ensuring data integrity and efficient 
    - Transaction Routes: Define endpoints for transaction-related actions.
 
 5. Services/Validations
+
    - User Service: Contains business logic for user operations.
    - Wallet Service: Contains business logic for wallet operations.
    - Transaction Service: Contains business logic for transaction operations.
    - Email Validation: Contains validations for email implementation.
+
+6. Utils
+   - isBlackListed: Contains helper functions for user registration.
+   - transaction: Contains helper functions for transaction proceedings.
 
 # Contributing
 

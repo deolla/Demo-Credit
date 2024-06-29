@@ -8,19 +8,20 @@ The E-R Diagram represents the relationships between the main entities in the De
 
 ## Entities and Relationships
 
-1. User
+-- User
 
-   - Attributes: UserID (Primary Key), Name, Email, Password, isBlacklisted
-   - Relationships: A user can have one or more wallets.
+- Attributes: UserID (Primary Key), Name, Email, Password, isBlacklisted
+- Relationships: A user can have one or more wallets.
 
-2. Wallet
+-- Wallet
 
-   - Attributes: WalletID (Primary Key), UserID (Foreign Key), Balance
-   - Relationships: A wallet belongs to a user and can have multiple transactions.
+- Attributes: WalletID (Primary Key), UserID (Foreign Key), Balance
+- Relationships: A wallet belongs to a user and can have multiple transactions.
 
-3. Transaction
-   - Attributes: TransactionID (Primary Key), WalletID (Foreign Key), Amount, TransactionType, TransactionDate
-   - Relationships: A transaction belongs to a wallet.
+-- Transaction
+
+- Attributes: TransactionID (Primary Key), WalletID (Foreign Key), Amount, TransactionType, TransactionDate
+- Relationships: A transaction belongs to a wallet.
 
 ## E-R Diagram Design
 
@@ -75,37 +76,6 @@ You can view and edit the E-R Diagram using DB Designer. The diagram illustrates
 
 Implementations Details:
 Project Structure
-`.
-├── src
-│   ├── controllers
-│   │   └── userController.ts
-│   │   └── walletController.ts
-│   │   └── transactionController.ts
-│   ├── models
-│   │   └── userModel.ts
-│   │   └── walletModel.ts
-│   │   └── transactionModel.ts
-│   ├── routes
-│   │   └── userRoutes.ts
-│   │   └── walletRoutes.ts
-│   │   └── transactionRoutes.ts
-│   ├── services
-│   │   └── userService.ts
-│   │   └── walletService.ts
-│   │   └── transactionService.ts
-│   ├── validations
-│   │   └── userValidation.ts
-│   │   └── walletValidation.ts
-│   │   └── transactionValidation.ts
-│   ├── database
-│   │   └── knexfile.ts
-│   │   └── migrations
-│   │   └── seeds
-│   ├── app.ts
-│   └── server.ts
-├── .env
-├── package.json
-└── README.md`
 
 ## Controllers
 

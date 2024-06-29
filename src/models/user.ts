@@ -12,6 +12,7 @@ export interface User {
     street: string;
     city: string;
     zip: string;
+    country: string;
   };
   password: string;
   isblacklisted: boolean;
@@ -30,6 +31,7 @@ export const schema: yup.Schema<User> = yup.object().shape({
   address: yup.object().shape({
     street: yup.string().required('Street is required'),
     city: yup.string().required('City is required'),
+    country: yup.string().required('Country is required'),
     zip: yup.string().required('Zip code is required'),
   }).required(),
   password: yup.string().required('Password is required').min(8, 'Password must be at least 8 characters'),

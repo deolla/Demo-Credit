@@ -6,7 +6,7 @@ export const transferFundsSchema: yup.Schema<any> = yup.object().shape({
     from_walletId: yup.string().required('From Wallet ID is required'),
     to_walletId: yup.string().required('To Wallet ID is required'),
     amount: yup.number().required('Amount is required').positive('Amount must be a positive number').default(0.0),
-    description: yup.string(),
+    description: yup.string().nullable().default(null),
     transaction_type: yup.string().oneOf(['credit', 'debit']).required('Transaction Type is required'),
     created_at: yup.date().default(() => new Date()).required(),
     currency: yup.string().required('Currency is required'),

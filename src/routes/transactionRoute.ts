@@ -1,5 +1,5 @@
 import express from 'express';
-import { transferFunds, fundAccount, getTransactions, getTransactionsFromSpecificWallet, deleteAllTransactions, deleteTransactionById } from '../controllers/transactionController';
+import { transferFunds, fundAccount, getTransactions, getTransactionsFromSpecificWallet, deleteAllTransactions, deleteTransactionById, withdrawFunds } from '../controllers/transactionController';
 import { authenticateToken } from '../middleware/auth';
 
 const router = express.Router();
@@ -10,5 +10,6 @@ router.get('/transfer', authenticateToken, getTransactions);
 router.get('/transfer/wallet?', authenticateToken, getTransactionsFromSpecificWallet); // query parameter by specific walletid
 router.delete('/transfer/delete_all', authenticateToken, deleteAllTransactions);
 router.delete('/transfer/del/?', authenticateToken, deleteTransactionById);
+router.post('/withdraw', authenticateToken, withdrawFunds);
 
 export default router;

@@ -18,7 +18,9 @@ export const getUsers = async (req: Request, res: Response) => {
 };
 
 export const getUserById = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
-    const { id }= req.params;
+    const { id }= req.query;
+    if (!id) return res.status(400).json({ message: 'User ID is required' });
+    
     try {
         const user = await db<User>('users').where('id', id).first();
         if (!user) {

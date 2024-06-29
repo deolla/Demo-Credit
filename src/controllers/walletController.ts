@@ -13,26 +13,6 @@ export const getWallets = async (req: Request, res: Response): Promise<Response<
     }
 };
 
-// export const getWalletBalance = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
-//     const { wallet_id } = req.params;
-
-//     try {
-//         const wallet: Wallet = await db('wallets')
-//             .where('id', wallet_id)
-//             .first();
-
-//         if (!wallet) {
-//             return res.status(404).json({ message: 'Wallet not found' });
-//         }
-
-//         return res.status(200).json({ balance: wallet.balance });
-//     }
-//     catch (error: any) {
-//         console.error('Error fetching wallet balance:', error.message);
-//         return res.status(500).json({ message: 'Failed to fetch wallet balance', error: error.message });
-//     }
-// }
-
 export const getWalletBalance = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
     const { id } = req.query; // Assuming 'id' is passed as a query parameter
 
@@ -62,7 +42,7 @@ export const getWalletBalance = async (req: Request, res: Response): Promise<Res
     }
 };
 
-// User should be able to delete wallet since wallet is created automaically when user register.
+// User should not be able to delete wallet since wallet is created automaically when user register.
 // export const deleteWallet = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
 //     const { id } = req.query; // Assuming 'id' is passed as a query parameter
 

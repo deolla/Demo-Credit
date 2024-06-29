@@ -18,10 +18,12 @@ import { generateVerificationToken } from '../services/validators/verificationTo
 import { sendVerificationEmail } from '../services/validators/emailvalidation';
 import { createWallet } from '../services/validators/walletValidation';
 import jwt from 'jsonwebtoken';
+import { validateAddress } from '../services/validators/addressvalidation';
 import dotenv from 'dotenv';
 
 const JWT_SECRET = process.env.JWT_SECRET || '';
 
+dotenv.config();
 
 export const register = async (req: Request, res: Response) => {
   const { name, email, password, age, phone, address } = req.body;
@@ -54,6 +56,11 @@ export const register = async (req: Request, res: Response) => {
 
     // Use bcrypt to encrypt user password
     const hash = await bcrypt.hash(password, 10);
+
+    const isValidAddress = await validateAddress(address);
+    if (!isValidAddress) {
+      return res.status(400).json({ message: 'Invalid address' });
+    }
 
     // Create a new user object
     const newUser: User = {

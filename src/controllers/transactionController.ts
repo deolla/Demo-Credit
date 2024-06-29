@@ -197,3 +197,46 @@ export const deleteTransactionById = async (req: Request, res: Response): Promis
         return res.status(500).json({ message: 'Failed to delete transaction', error: error.message });
     }
 };
+
+export const withdrawFunds = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
+    const { wallet_id, amount, description, transaction_type } = req.body;
+
+    try {
+
+        if (!wallet_id || !amount || isNaN(amount) || amount <= 0) {
+            return res.status(400).json({ message: 'Invalid request' });
+        }
+
+        // Check if wallet exists
+        const wallet = await db('wallets').where('id', wallet_id).first();
+        if (!wallet) {
+            return res.status(404).json({ message: 'Wallet not found' });
+        }
+
+        if (wallet.balance < amount) {
+            return res.status(400).json({ message: 'Insufficient funds' });
+        }
+
+        // Perform the transaction
+        await db.transaction(async (trx) => {
+            // Decrease balance in the wallet
+            await trx('wallets').where('id', wallet_id).decrement('balance', amount);
+
+            // Record the transaction
+            await trx('transactions').insert({
+                id: uuidv4(),
+                from_walletId: wallet_id,
+                to_walletId: null,
+                amount,
+                description,
+                currency: wallet.currency,
+                transaction_type,
+                createdAt: new Date(),
+            });
+        });
+        return res.status(200).json({ message: 'Funds withdrawn successfully' });
+    } catch (error: any) {
+        console.error('Error withdrawing funds:', error.message);
+        return res.status(500).json({ message: 'Failed to withdraw funds', error: error.message });
+    }
+};

@@ -1,6 +1,6 @@
 # Demo Credit Financial App
 
-Demo Credit is a mobile lending app that requires wallet functionality.ion that provides wallet functionality, allowing users to create accounts, fund them, transfer funds between accounts, and withdraw funds. This README provides a comprehensive overview of the project, including the E-R Diagram, setup instructions, implementation details, and the technologies used.
+Demo Credit is a mobile lending app that requires wallet functionality allowing users to create accounts, fund them, transfer funds between accounts, and withdraw funds. This README provides a comprehensive overview of the project, including the E-R Diagram, setup instructions, implementation details, and the technologies used.
 
 ## E-R Diagram
 

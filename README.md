@@ -24,6 +24,8 @@ The E-R Diagram represents the relationships between the main entities in the De
 
 ## E-R Diagram Design
 
+![Database](./img/demo-.png)
+
 You can view and edit the E-R Diagram using DB Designer. The diagram illustrates how the entities are connected, ensuring data integrity and efficient handling of user and transaction data.
 
 ## Technologies Used:

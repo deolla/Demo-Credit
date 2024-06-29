@@ -8,20 +8,19 @@ The E-R Diagram represents the relationships between the main entities in the De
 
 ## Entities and Relationships
 
--- User
+- User
 
-- Attributes: UserID (Primary Key), Name, Email, Password, isBlacklisted
-- Relationships: A user can have one or more wallets.
+  - Attributes: UserID (Primary Key), Name, Email, Password, isBlacklisted
+  - Relationships: A user can have one or more wallets.
 
--- Wallet
+- Wallet
 
-- Attributes: WalletID (Primary Key), UserID (Foreign Key), Balance
-- Relationships: A wallet belongs to a user and can have multiple transactions.
+  - Attributes: WalletID (Primary Key), UserID (Foreign Key), Balance
+  - Relationships: A wallet belongs to a user and can have multiple transactions.
 
--- Transaction
-
-- Attributes: TransactionID (Primary Key), WalletID (Foreign Key), Amount, TransactionType, TransactionDate
-- Relationships: A transaction belongs to a wallet.
+- Transaction
+  - Attributes: TransactionID (Primary Key), WalletID (Foreign Key), Amount, TransactionType, TransactionDate
+  - Relationships: A transaction belongs to a wallet.
 
 ## E-R Diagram Design
 

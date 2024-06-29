@@ -72,36 +72,33 @@ It shows how each entities are connected, ensuring data integrity and efficient 
    ```
 2. The application will be running at `http://localhost:3000`.
 
-Implementations Details:
-Project Structure
+# Implementations Details:
 
-## Controllers
+## Project Structure:
 
-- User Controller: Contains CRUD implementations for Users.
-- Wallet Controller: Contains CRUD implementations for wallets.
-- Transaction Controller: Contains CRUD implementations for transactions.
+1. Controllers
 
-## Models
+   - User Controller: Contains CRUD implementations for Users.
+   - Wallet Controller: Contains CRUD implementations for wallets.
+   - Transaction Controller: Contains CRUD implementations for transactions.
 
-- User Model: Represents the user entity and interactions with the user table.
-- Wallet Model: Represents the wallet entity and interactions with the wallet table.
-- Transaction Model: Represents the transaction entity and interactions with the transaction table.
+2. Models
 
-## Routes
+   - User Model: Represents the user entity and interactions with the user table.
+   - Wallet Model: Represents the wallet entity and interactions with the wallet table.
+   - Transaction Model: Represents the transaction entity and interactions with the transaction table.
 
-- User Routes: Define endpoints for user-related actions.
-- Wallet Routes: Define endpoints for wallet-related actions.
-- Transaction Routes: Define endpoints for transaction-related actions.
+3. Routes
 
-## Services
+   - User Routes: Define endpoints for user-related actions.
+   - Wallet Routes: Define endpoints for wallet-related actions.
+   - Transaction Routes: Define endpoints for transaction-related actions.
 
-- User Service: Contains business logic for user operations.
-- Wallet Service: Contains business logic for wallet operations.
-- Transaction Service: Contains business logic for transaction operations.
-
-## Services/Validations
-
-Email Validation: Contains validations for email implementation.
+4. Services/Validations
+   - User Service: Contains business logic for user operations.
+   - Wallet Service: Contains business logic for wallet operations.
+   - Transaction Service: Contains business logic for transaction operations.
+   - Email Validation: Contains validations for email implementation.
 
 # Contributing
 

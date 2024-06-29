@@ -1,8 +1,8 @@
 import { Knex } from "knex";
 import dotenv from 'dotenv';
 
-// Load environment variables from .env file
 dotenv.config();
+
 console.log('Database Config:', {
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -19,11 +19,11 @@ const configs: DemoConfig = {
   development: {
     client: "mysql2",
     connection: {
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT || '3306'),
+      database: 'democredit',
+      user: 'root',
+      password: 'deolla',
+      host: 'localhost',
+      port: 3306
     },
     debug: true,
     useNullAsDefault: true,
@@ -45,9 +45,11 @@ const configs: DemoConfig = {
   staging: {
     client: "postgresql",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT || '5432'),
     },
     pool: {
       min: 2,
@@ -61,9 +63,11 @@ const configs: DemoConfig = {
   production: {
     client: "postgresql",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT || '5432'),
     },
     pool: {
       min: 2,

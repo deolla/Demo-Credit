@@ -36,4 +36,4 @@ export const schema: yup.Schema<User> = yup.object().shape({
   isblacklisted: yup.boolean().default(false).required('Blacklist status is required'),
   createdAt: yup.date().default(() => new Date()).required(),
   updatedAt: yup.date().default(() => new Date()).required(),
-});
+}).noUnknown();

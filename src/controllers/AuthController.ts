@@ -14,8 +14,14 @@ import bcrypt from 'bcrypt';
 import { isBlacklisted } from '../util/isBlacklisted/isBlackliksted';
 import { schema as userSchema, User } from '../models/user';
 import db from '../database/db';
-import { generateVerificationToken } from '../util/validators/verificationToken';
-import { sendVerificationEmail } from '../util/validators/emailvalidation';
+import { generateVerificationToken } from '../services/validators/verificationToken';
+import { sendVerificationEmail } from '../services/validators/emailvalidation';
+import { createWallet } from '../services/validators/walletValidation';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+const JWT_SECRET = process.env.JWT_SECRET || '';
+
 
 export const register = async (req: Request, res: Response) => {
   const { name, email, password, age, phone, address } = req.body;
@@ -67,6 +73,9 @@ export const register = async (req: Request, res: Response) => {
     // Save to the database
     const [userId] = await db<User>('users').insert(newUser);
 
+    // Create a wallet for the user
+    await createWallet(newUser.id);
+
     // Generate verification token
     const verificationToken = generateVerificationToken();
 
@@ -96,3 +105,29 @@ export const register = async (req: Request, res: Response) => {
     });
   }
 };
+
+// Login User.
+
+export const login = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
+  const { email, password } = req.body;
+
+  try {
+      const user = await db<User>('users').where({ email }).first();
+      if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+      }
+
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      if (!isPasswordValid) {
+          return res.status(401).json({ message: 'Invalid password' });
+      }
+
+      const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '5d' });
+
+      return res.status(200).json({ message: 'Login successful', token });
+  } catch (err: any) {
+      console.error(`Error signing in user: ${err.message}`);
+      return res.status(500).json({ message: 'Internal server error', error: err.message });
+  }
+};
+

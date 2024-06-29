@@ -3,7 +3,9 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import userRouter from './routes/userRoute';
-import registerRoute from './routes/registerRouter'
+import registerRoute from './routes/authRoute';
+import transactionRoute from './routes/transactionRoute';
+import walletRouter from './routes/walletRoute';
 
 dotenv.config();
 const app = express();
@@ -17,6 +19,8 @@ app.use(cors());
 // routes.
 app.use('/api', userRouter);
 app.use('/api', registerRoute);
+app.use('/api', transactionRoute);
+app.use('/api', walletRouter);
 
 
 

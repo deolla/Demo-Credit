@@ -34,7 +34,7 @@ You can view and edit the E-R Diagram using DB Designer. The diagram illustrates
 -- MySQLDB: Relational Database Managemant System used for storing user and transaction data.
 -- Yup: Validation library for ensuring data integrity and efficient handling of user and transaction data.
 
-# _Setup_:
+# Setup:
 
 #Installation
 

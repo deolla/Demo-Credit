@@ -4,7 +4,10 @@ Demo Credit is a mobile lending app that requires wallet functionality allowing 
 
 # E-R Diagram
 
-The E-R Diagram represents the relationships between the main entities in the Demo Credit financial app: User, Wallet, and Transaction
+![Database](./img/demo-.png)
+
+The E-R Diagram represents the relationships between the main entities in the Demo Credit financial app: User, Wallet, and Transaction.
+It shows how each entities are connected, ensuring data integrity and efficient handling of user and transaction data [DB Designer](https://erd.dbdesigner.net/designer/schema/1719599003-demo-credit).
 
 ## Entities and Relationships
 
@@ -21,12 +24,6 @@ The E-R Diagram represents the relationships between the main entities in the De
 - Transaction
   - Attributes: TransactionID (Primary Key), WalletID (Foreign Key), Amount, TransactionType, TransactionDate
   - Relationships: A transaction belongs to a wallet.
-
-## E-R Diagram Design
-
-![Database](./img/demo-.png)
-
-You can view and edit the E-R Diagram using DB Designer. The diagram illustrates how the entities are connected, ensuring data integrity and efficient handling of user and transaction data.
 
 ## Technologies Used:
 

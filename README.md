@@ -82,19 +82,26 @@ It shows how each entities are connected, ensuring data integrity and efficient 
    - Wallet Controller: Contains CRUD implementations for wallets.
    - Transaction Controller: Contains CRUD implementations for transactions.
 
-2. Models
+2. Database
+
+   - Migrations: contains database migrations information.
+   - seeds: contains database seeds information.
+   - db: contains database configuration information for user models/schema.
+   - knexfile: contains database configuration settings.
+
+3. Models
 
    - User Model: Represents the user entity and interactions with the user table.
    - Wallet Model: Represents the wallet entity and interactions with the wallet table.
    - Transaction Model: Represents the transaction entity and interactions with the transaction table.
 
-3. Routes
+4. Routes
 
    - User Routes: Define endpoints for user-related actions.
    - Wallet Routes: Define endpoints for wallet-related actions.
    - Transaction Routes: Define endpoints for transaction-related actions.
 
-4. Services/Validations
+5. Services/Validations
    - User Service: Contains business logic for user operations.
    - Wallet Service: Contains business logic for wallet operations.
    - Transaction Service: Contains business logic for transaction operations.

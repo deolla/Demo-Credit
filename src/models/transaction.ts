@@ -1,3 +1,6 @@
+// this file contains the model for the transaction entity
+// and schema for the transaction entity using yup for validation.
+
 import * as yup from 'yup';
 const { v4: uuidv4 } = require('uuid');
 

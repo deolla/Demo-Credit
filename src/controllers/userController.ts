@@ -1,3 +1,6 @@
+// This file contains the controller functions for handling users
+// The functions are used as the callback functions for the routes
+ 
 import db from '../database/db'
 import { Request, Response } from 'express';
 import { schema as userSchema, User } from '../models/user'
@@ -59,20 +62,17 @@ export const getUserByEmail = async (req: Request, res: Response): Promise<Respo
 };
 
 export const updateUser = async (req: Request, res: Response) => {
-    const { id } = req.params; // Assuming you pass the user ID as a route parameter
-    const { field, value } = req.body; // Assuming 'field' and 'value' are sent in the request body
+    const { id } = req.params;
+    const { field, value } = req.body;
 
     try {
         // Check if 'field' and 'value' are provided
         if (!field || !value) {
             return res.status(400).json({ message: 'Field and value are required' });
         }
-
-        // Construct an object to dynamically update the specified field
         const updateFields: any = {};
         updateFields[field] = value;
 
-        // Use Knex update() method to update the specified field
         const updateCount = await db('users').where('id', id).update(updateFields);
 
         if (updateCount === 1) {
@@ -98,6 +98,7 @@ export const deleteUserById = async (req: Request, res: Response): Promise<Respo
         }
 
         await db<User>('users').where('id', id).delete();
+        // returns deleted user.
         return res.status(200).json({ message: 'User deleted successfully' });
     } catch (err: any) {
         console.error(`Error deleting User: ${err}`);

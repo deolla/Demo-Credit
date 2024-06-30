@@ -1,3 +1,6 @@
+// this file contains the routes for the wallet controller
+// the routes are /wallet, /wallet/balance, /wallet/delete
+
 import express from 'express';
 import { getWallets, getWalletBalance } from '../controllers/walletController';
 import { authenticateToken } from '../middleware/auth';

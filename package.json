@@ -4,7 +4,16 @@
   "description": "A mobile lending app that requires wallet functionality.",
   "main": "dist/server.js",
   "scripts": {
+    "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage",
+    "test:debug": "cross-env NODE_ENV=test node --inspect-brk node_modules/.bin/jest --runInBand",
+    "test:migrate": "cross-env NODE_ENV=test knex migrate:latest",
+    "test:rollback": "cross-env NODE_ENV=test knex migrate:rollback",
     "start": "nodemon src/server.ts",
+    "knex:migrate:latest:test": "npx knex --knexfile src/database/knexfile.ts migrate:latest --env test",
+    "knex:migrate:rollback:test": "npx knex --knexfile src/database/knexfile.ts migrate:rollback --env test",
+    "knex:seed:run:test": "npx knex --knexfile src/database/knexfile.ts seed:run --env test",
     "knex": "npx knex --knexfile src/database/knexfile.ts"
   },
   "keywords": [],
@@ -13,14 +22,20 @@
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.6",
     "@types/cors": "^2.8.17",
+    "@types/jest": "^29.5.12",
     "@types/knex": "^0.16.1",
     "@types/node": "^20.14.9",
     "@types/nodemailer": "^6.4.15",
     "@types/nodemailer-smtp-transport": "^2.7.8",
+    "@types/supertest": "^6.0.2",
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.14.1",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.4",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.5",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.5.2"
@@ -42,7 +57,6 @@
     "mysql2": "^3.10.1",
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.14",
-    "ts-jest": "^29.1.5",
     "uuid": "^10.0.0",
     "yup": "^1.4.0"
   }

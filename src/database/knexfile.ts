@@ -1,15 +1,8 @@
 import { Knex } from "knex";
 import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config();
-
-console.log('Database Config:', {
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  hostname: process.env.DB_HOST,
-  portnumber: process.env.DB_PORT
-});
 
 interface DemoConfig {
   [key: string]: Knex.Config;
@@ -25,6 +18,12 @@ const configs: DemoConfig = {
       host: 'localhost',
       port: 3306
     },
+    migrations: {
+      directory: './migrations'
+    },
+    seeds: {
+      directory: './seeds'
+    },
     debug: true,
     useNullAsDefault: true,
   },
@@ -32,11 +31,30 @@ const configs: DemoConfig = {
   environment: {
     client: "mysql2",
     connection: {
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      host: process.env.DB_HOST,
+      database: "democredit",
+      user: "root",
+      password: "deolla",
+      host: "127.0.0.1",
+      port: 3306,
+    },
+    debug: true,
+    useNullAsDefault: true,
+  },
+
+  test: {
+    client: "mysql2",
+    connection: {
+      database: 'democredit_test',
+      user: 'root',
+      password: 'deolla',
+      host: 'localhost',
       port: parseInt(process.env.DB_PORT || '3306'),
+    },
+    migrations: {
+      directory: path.join(__dirname, 'migrations'),
+    },
+    seeds: {
+      directory: path.join(__dirname, 'seeds')
     },
     debug: true,
     useNullAsDefault: true,

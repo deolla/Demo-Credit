@@ -1,3 +1,7 @@
+// this middleware is used to authenticate the user by verifying the token sent in the request header
+// if the token is valid, the user is authenticated and the request is passed to the next middleware
+// if the token is invalid, the user is not authenticated and an error response is sent back to the client.
+
 import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import dotenv from 'dotenv';

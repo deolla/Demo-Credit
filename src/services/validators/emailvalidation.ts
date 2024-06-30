@@ -1,7 +1,9 @@
+// this file is responsible for sending emails to users
+// it contains the functions for sending verification emails.
+
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 
-// Load environment variables from .env file
 dotenv.config();
 
 interface EmailOptions {
@@ -42,7 +44,7 @@ export const sendVerificationEmail = async (email: string, verificationToken: st
         from: process.env.GMAIL,
         to: email,
         subject: 'Verify Your Email Address',
-        html: `<p>Please click <a href="${verificationLink}">here</a> to verify your email address.</p> <p>If you did not request this, please ignore this email.</p>`,
+        html: `<p>Please click <a href="${verificationLink}">here</a> to verify your email address.</p><p>If you did not request this, please ignore this email.</p>`,
     };
 
     try {

@@ -1,4 +1,9 @@
-// isBlacklisted.ts
+// this file is responsible for checking if a user is blacklisted or not
+// it contains the function that checks the karma database for a user's identity
+// it gets the blacklisted api url and the token from the environment variables
+// it sends a get request to the blacklisted api with the user's identity
+// if the user is blacklisted, it returns true, else it returns false
+// it logs any errors that occur during the process
 
 import axios, { AxiosError } from 'axios';
 import dotenv from 'dotenv';
@@ -29,13 +34,11 @@ const isBlacklisted = async (identity: string): Promise<boolean> => {
       throw new Error('Failed to fetch blacklist status');
     }
 
-    // Assuming the data structure from the API response
     const { data } = response.data;
-    return !!data; // Adjust based on actual response structure
+    return !!data;
   } catch (err) {
     if (axios.isAxiosError(err)) {
       const axiosError = err as AxiosError;
-      // Handle Axios specific errors
       if (axiosError.response) {
         console.error(`Error checking blacklist: ${axiosError.response.status} - ${JSON.stringify(axiosError.response.data)}`);
         if (axiosError.response.status === 404) {
@@ -48,7 +51,7 @@ const isBlacklisted = async (identity: string): Promise<boolean> => {
         console.error(`Error setting up request: ${axiosError.message}`);
       }
     } else {
-      // Handle generic errors
+      // Generic error checking
       console.error(`Error checking blacklist: ${err}`);
     }
     throw new Error('Error checking blacklist');

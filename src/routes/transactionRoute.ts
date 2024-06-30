@@ -1,3 +1,7 @@
+// this file is used to define the routes for the transaction controller
+// it contains the routes for transferring funds, funding an account,
+// getting transactions, deleting transactions, and withdrawing funds
+
 import express from 'express';
 import { transferFunds, fundAccount, getTransactions, getTransactionsFromSpecificWallet, deleteAllTransactions, deleteTransactionById, withdrawFunds } from '../controllers/transactionController';
 import { authenticateToken } from '../middleware/auth';

@@ -1,3 +1,6 @@
+// this file contains the model definition for a user
+// and the schema for validating user data using yup
+
 import * as yup from 'yup';
 const { v4: uuidv4 } = require('uuid');
 

@@ -1,3 +1,6 @@
+// this file contains the routes for the user endpoints
+// it contains the routes for getting all users, getting a user by id, getting a user by email,
+// updating a user, and deleting a user
 import express from 'express';
 import {getUsers, getUserById, getUserByEmail, updateUser, deleteUserById } from '../controllers/userController';
 import { authenticateToken } from '../middleware/auth';

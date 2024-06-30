@@ -1,3 +1,5 @@
+// this file contains information about the wallet model and the schema for validating wallet data using yup
+
 import * as yup from 'yup';
 const { v4: uuidv4 } = require('uuid');
 

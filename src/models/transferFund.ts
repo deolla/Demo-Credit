@@ -1,3 +1,6 @@
+// this file contains the schema for the transfer fund model
+// using yup for validation.
+
 import * as yup from 'yup';
 const { v4: uuidv4 } = require('uuid');
 

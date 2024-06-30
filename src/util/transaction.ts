@@ -1,3 +1,8 @@
+// this file contains the functions that will be used to fund and withdraw from the wallet
+// it contains the functions fundWallet and withdrawFromWallet
+// the fundWallet function will be used to fund the wallet
+// the withdrawFromWallet function will be used to withdraw from the wallet
+
 import db from '../database/db'
 import { Wallet } from '../models/wallet'
 

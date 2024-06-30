@@ -28,8 +28,12 @@ dotenv.config();
 export const register = async (req: Request, res: Response) => {
   const { name, email, password, age, phone, address } = req.body;
 
+  // check if feilds are provided
+  if (!name || !email || !password || !address || !age || !phone) {
+    return res.status(400).json({ message: 'All fields are required for registration' });
+  }
+
   try {
-    // Validate incoming data using Yup schema
     await userSchema.validate({
       name,
       email,
@@ -42,7 +46,7 @@ export const register = async (req: Request, res: Response) => {
     // Check if the user already exists
     const existingUser = await db<User>('users').where('email', email).first();
     if (existingUser) {
-      return res.status(409).json({ error: 'Email already in use' });
+      return res.status(409).json({ message: 'Email already in use' });
     }
 
     // Check if the user is blacklisted
@@ -106,6 +110,7 @@ export const register = async (req: Request, res: Response) => {
         message: 'User already exists',
       });
     }
+    
     return res.status(500).json({
       message: 'Internal server error',
       error: err.message
@@ -118,23 +123,29 @@ export const register = async (req: Request, res: Response) => {
 export const login = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
   const { email, password } = req.body;
 
+  // check if fields are provided
+  if (!email || !password) {
+    return res.status(400).json({ message: 'Email and password are required' });
+  }
+
   try {
-      const user = await db<User>('users').where({ email }).first();
-      if (!user) {
-          return res.status(404).json({ message: 'User not found' });
-      }
+    const user = await db<User>('users').where({ email }).first();
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
 
-      const isPasswordValid = await bcrypt.compare(password, user.password);
-      if (!isPasswordValid) {
-          return res.status(401).json({ message: 'Invalid password' });
-      }
+    // Check if the password is valid
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Invalid password' });
+    }
 
-      const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '5d' });
+    const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '5d' });
 
-      return res.status(200).json({ message: 'Login successful', token });
+    return res.status(200).json({ message: 'Login successful', token });
   } catch (err: any) {
-      console.error(`Error signing in user: ${err.message}`);
-      return res.status(500).json({ message: 'Internal server error', error: err.message });
+    // return and log error to console( for debuging purposes)
+    console.error(`Error signing in user: ${err.message}`);
+    return res.status(500).json({ message: 'Internal server error', error: err.message });
   }
 };
-

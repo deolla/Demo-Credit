@@ -16,7 +16,10 @@ const configs: DemoConfig = {
       user: 'root',
       password: 'deolla',
       host: 'localhost',
-      port: 3306
+      port: 3306,
+      ssl: {
+        rejectUnauthorized: false,
+      }
     },
     migrations: {
       directory: './migrations'
@@ -36,6 +39,9 @@ const configs: DemoConfig = {
       password: "deolla",
       host: "127.0.0.1",
       port: 3306,
+      ssl: {
+        rejectUnauthorized: false,
+      }
     },
     debug: true,
     useNullAsDefault: true,
@@ -49,6 +55,9 @@ const configs: DemoConfig = {
       password: 'deolla',
       host: 'localhost',
       port: parseInt(process.env.DB_PORT || '3306'),
+      ssl: {
+        rejectUnauthorized: false,
+      }
     },
     migrations: {
       directory: path.join(__dirname, 'migrations'),
@@ -84,7 +93,10 @@ const configs: DemoConfig = {
       database: process.env.DATABASE_NAME,
       user: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
-      host: process.env.DATABASE_HOST
+      host: process.env.DATABASE_HOST,
+      ssl: {
+        rejectUnauthorized: false,
+      }
     },
     pool: {
       min: 2,

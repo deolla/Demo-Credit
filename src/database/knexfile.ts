@@ -104,8 +104,11 @@ const configs: DemoConfig = {
       max: 10
     },
     migrations: {
-      tableName: "knex_migrations"
-    }
+      directory: path.join(__dirname, 'migrations'),
+    },
+    seeds: {
+      directory: path.join(__dirname, 'seeds')
+    },
   }
 };
 

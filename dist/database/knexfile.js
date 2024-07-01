@@ -98,8 +98,11 @@ const configs = {
             max: 10
         },
         migrations: {
-            tableName: "knex_migrations"
-        }
+            directory: path_1.default.join(__dirname, 'migrations'),
+        },
+        seeds: {
+            directory: path_1.default.join(__dirname, 'seeds')
+        },
     }
 };
 exports.default = configs;

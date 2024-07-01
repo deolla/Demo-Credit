@@ -79,13 +79,13 @@ const configs: DemoConfig = {
   },
 
   production: {
-    client: "mysql2",
+    client: "postgresql",
     connection: {
-      database: 'democredit',
-      user: 'root',
-      password: 'deolla',
-      host: 'localhost',
-      port: 3306,
+      database: process.env.POSTGRES_DATABASE,
+      user: process.env.POSTGRES_USER,
+      password: process.env.POSTGRES_PASSWORD,
+      host: process.env.POSTGRES_HOST,
+      port: 5432,
     },
     pool: {
       min: 2,

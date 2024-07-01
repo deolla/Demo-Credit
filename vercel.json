@@ -66,11 +66,5 @@
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/$1" }
-  ],
-  "frameworks": {
-    "node": {
-      "buildCommand": "npm run build",
-      "runtime": "nodejs14.x"
-    }
-  }
+  ]
 }

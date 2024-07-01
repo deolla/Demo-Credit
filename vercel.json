@@ -2,68 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/server.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**"]
-      }
+      "src": "./server.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/users",
-      "dest": "dist/server.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/user/:id",
-      "dest": "dist/server.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/user/:email",
-      "dest": "dist/server.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/user/:id",
-      "dest": "dist/server.js",
-      "methods": ["PUT"]
-    },
-    {
-      "src": "/api/user/:id",
-      "dest": "dist/server.js",
-      "methods": ["DELETE"]
-    },
-    {
-      "src": "/api/*",
-      "dest": "dist/server.js",
-      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-        "Pragma": "no-cache",
-        "Expires": "0"
-      }
-    },
-    {
       "src": "/(.*)",
-      "dest": "dist/server.js",
-      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-        "Pragma": "no-cache",
-        "Expires": "0"
-      }
+      "dest": "/server.js"
     }
-  ],
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/$1" }
   ]
 }

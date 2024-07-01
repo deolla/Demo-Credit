@@ -7,7 +7,7 @@ const knex_1 = __importDefault(require("knex"));
 const knexfile_1 = __importDefault(require("./knexfile"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'production';
 console.log(env);
 const configOptions = knexfile_1.default[env];
 console.log(`Using ${env} database configuration`, configOptions);

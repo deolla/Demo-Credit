@@ -88,12 +88,9 @@ const configs: DemoConfig = {
   },
 
   production: {
-    client: "postgresql",
+    client: "pg",
     connection: {
-      database: process.env.DATABASE_NAME,
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-      host: process.env.DATABASE_HOST,
+      connectionString: "postgresql://democredit_5739_user:5Gkz9y55NJZR976hLQtefPcmhv836uB5@dpg-cq1ehk5ds78s73aht2s0-a.frankfurt-postgres.render.com/democredit_5739",
       ssl: {
         rejectUnauthorized: false,
         sslmode: 'require'

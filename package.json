@@ -16,7 +16,8 @@
     "knex:migrate:latest:test": "npx knex --knexfile src/database/knexfile.ts migrate:latest --env test",
     "knex:migrate:rollback:test": "npx knex --knexfile src/database/knexfile.ts migrate:rollback --env test",
     "knex:seed:run:test": "npx knex --knexfile src/database/knexfile.ts seed:run --env test",
-    "knex": "npx knex --knexfile src/database/knexfile.ts"
+    "knex": "npx knex --knexfile src/database/knexfile.ts",
+    "knex1": "npx knex --knexfile dist/database/knexfile.js"
   },
   "keywords": [],
   "author": "",

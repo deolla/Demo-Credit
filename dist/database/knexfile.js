@@ -90,7 +90,8 @@ const configs = {
             host: process.env.DATABASE_HOST,
             ssl: {
                 rejectUnauthorized: false,
-            }
+                sslmode: 'require'
+            },
         },
         pool: {
             min: 2,

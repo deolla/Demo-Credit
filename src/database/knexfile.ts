@@ -96,7 +96,8 @@ const configs: DemoConfig = {
       host: process.env.DATABASE_HOST,
       ssl: {
         rejectUnauthorized: false,
-      }
+        sslmode: 'require'
+      } as any,
     },
     pool: {
       min: 2,

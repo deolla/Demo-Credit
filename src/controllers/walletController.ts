@@ -33,8 +33,7 @@ export const getWalletBalance = async (req: Request, res: Response): Promise<Res
             return res.status(404).json({ message: 'Wallet not found' });
         }
         const response = { balance: wallet.balance };
-        
-        // return user wallet balance
+        // return user
         return res.status(200).json(response);
     } catch (error: any) {
         console.error('Error fetching wallet balance:', error.message);

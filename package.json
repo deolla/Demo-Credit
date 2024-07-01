@@ -11,6 +11,7 @@
     "test:migrate": "cross-env NODE_ENV=test knex migrate:latest",
     "test:rollback": "cross-env NODE_ENV=test knex migrate:rollback",
     "start": "nodemon src/server.ts",
+    "dev": "node src/server.js",
     "knex:migrate:latest:test": "npx knex --knexfile src/database/knexfile.ts migrate:latest --env test",
     "knex:migrate:rollback:test": "npx knex --knexfile src/database/knexfile.ts migrate:rollback --env test",
     "knex:seed:run:test": "npx knex --knexfile src/database/knexfile.ts seed:run --env test",

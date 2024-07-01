@@ -13,7 +13,7 @@ const transactionRoute_1 = __importDefault(require("./routes/transactionRoute"))
 const walletRoute_1 = __importDefault(require("./routes/walletRoute"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(body_parser_1.default.json());

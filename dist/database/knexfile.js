@@ -58,11 +58,11 @@ const configs = {
     staging: {
         client: "postgresql",
         connection: {
-            database: process.env.DB_NAME,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            host: process.env.DB_HOST,
-            port: parseInt(process.env.DB_PORT || '5432'),
+            database: 'democredit',
+            user: 'root',
+            password: 'deolla',
+            host: 'localhost',
+            port: 5432,
         },
         pool: {
             min: 2,
@@ -73,13 +73,13 @@ const configs = {
         }
     },
     production: {
-        client: "postgresql",
+        client: "mysql2",
         connection: {
-            database: process.env.DB_NAME,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            host: process.env.DB_HOST,
-            port: parseInt(process.env.DB_PORT || '5432'),
+            database: 'democredit',
+            user: 'root',
+            password: 'deolla',
+            host: 'localhost',
+            port: 3306,
         },
         pool: {
             min: 2,

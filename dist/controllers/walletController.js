@@ -42,7 +42,7 @@ const getWalletBalance = (req, res) => __awaiter(void 0, void 0, void 0, functio
             return res.status(404).json({ message: 'Wallet not found' });
         }
         const response = { balance: wallet.balance };
-        // return user wallet balance
+        // return user
         return res.status(200).json(response);
     }
     catch (error) {
